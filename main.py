@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord import app_commands
 from datetime import datetime, timedelta
 from keep_alive import keep_alive
-import os
+from os import getenv
 import asyncio
 
 load_dotenv()
@@ -18,13 +18,11 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 
 latest_bump_time = None
 
-ROLE_ID = 1286722521919389777  # 特定のロールID
-TOKEN = os.getenv("TOKEN")  # TOKENの取得
-TARGET_CHANNELS = []  # 特定のチャンネルIDリスト
-ALLOWED_USERS = [ 1198921988769587211 ]  # ユーザーIDを追加
-RUNNER_NAME = os.getenv("PC_NAME")
-terminal_id = os.getenv("Log_id")
-update_id = os.getenv("Server_log_id")
+ROLE_ID =getenv("Admin_id")  # 特定のロールID
+TOKEN = getenv("TOKEN")  # TOKENの取得
+RUNNER_NAME = getenv("PC_NAME")
+terminal_id = getenv("Log_id")
+update_id = getenv("Server_log_id")
 
 
 @bot.event
